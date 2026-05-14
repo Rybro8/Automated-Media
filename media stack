@@ -1,0 +1,23 @@
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    ports:
+      - "8096:8096"
+    volumes:
+      - /srv/appdata/jellyfin:/config
+      - /mnt/media:/media
+    devices:
+      - /dev/dri:/dev/dri
+    restart: unless-stopped
+
+  jellyseerr:
+    image: fallenbagel/jellyseerr:latest
+    container_name: jellyseerr
+    ports:
+      - "5055:5055"
+    volumes:
+      - /srv/appdata/jellyseerr:/app/config
+    environment:
+      - TZ=America/New_York
+    restart: unless-stopped
