@@ -13,8 +13,8 @@ services:
     environment:
       - VPN_SERVICE_PROVIDER=nordvpn
       - VPN_TYPE=openvpn
-      - OPENVPN_USER=INSERT_USER_HERE
-      - OPENVPN_PASSWORD=INERT_PASSWORD_HERE
+      - OPENVPN_USER=${OPENVPN_USER:-openvpn}
+      - OPENVPN_PASSWORD=${OPENVPN_PASS:-change_me_pass}
       - OPENVPN_PROTOCOL=udp
       - SERVER_COUNTRIES=United States
       - TZ=America/New_York
