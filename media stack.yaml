@@ -3,7 +3,7 @@ services:
     image: jellyfin/jellyfin:latest
     container_name: jellyfin
     ports:
-      - "8096:8096"
+      - "8096:${JELLYFIN_POER:-8096}"
     volumes:
       - /srv/appdata/jellyfin:/config
       - /mnt/media:/media
